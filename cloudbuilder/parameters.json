@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_cloudhawk_adminPassword": {
+            "value": "putRandomPasswo44#"
+        },
+        "virtualMachines_cloudhawk_name": {
+            "value": "cloudhawk"
+        },
+        "networkInterfaces_cloudhawk356_name": {
+            "value": "cloudhawk"
+        },
+        "networkSecurityGroups_cloudhawk_name": {
+            "value": "cloudhawk"
+        },
+
+
+        "storageAccounts_cloudhawk1055_name": {
+            "value": "storageaccountname1"
+        },
+        "storageAccounts_cloudhawk3423_name": {
+            "value": "storageaccountname2"
+        }
+
+    }
+}
