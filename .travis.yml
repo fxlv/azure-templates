@@ -7,8 +7,7 @@ before_script:
   - echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe" | sudo tee /etc/apt/sources.list
   - sudo apt-get update
   - sudo apt-get install shellcheck
-  - sudo apt-get install npm
-  - sudo npm install -g jsonlint
+  - npm install -g jsonlint
 
 script:
  - jsonlint cloudbuilder/parameters.json
