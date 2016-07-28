@@ -3,64 +3,31 @@ import os
 import sys
 from subprocess import Popen, PIPE
 import json
+import vm
 
 
 
-subscriptionId="lalala-lalala-lalala"
-vmName="cloudhawkbuild"
-resourceGroupLocation="northeurope"
+subscription_id="lalala-lalala-lalala"
+vm_name="cloudhawkbuild"
+resource_group_location="northeurope"
 
-deploymentName="${vmName}_deployment"
-resourceGroupName="${vmName}_rg"
-templateFilePath="template.json"
-parametersFilePath="parameters.json"
+deployment_name="{}deployment".format(vm_name)
+resource_group_name="lalala3"
+template_file_path="template.json"
+parameters_file_path="parameters.json"
+
 
 # first check what vms already exist
-class AzureVM():
-    def __init__(self, subscriptionId):
-        self.subscriptionId = subscriptionId
-        if not self.check_subscription():
-            print "Invalid subscription provided"
-            sys.exit(1)
+# the flow goes like this:
+# * create AzureVM object
+# * create VM
+# ** check if subscription id is provided and check if it's valid, 
+#    set it as the default
+# ** check if resource group already exists, create it if it doesn't
+# ** create the VM
 
-    def run_command(self, command):
-        process = Popen(command.split(), stdout=PIPE, stderr=PIPE)
-        stdout, stderr = process.communicate()
-        if stderr:
-            print "Stderr: {}".format(stderr)
-        return json.loads(stdout)
-
-    def check_subscription(self):
-        """Return True if the provided subscriptionId is valid."""
-        accounts = self.get_accounts()
-        for account in accounts:
-            if account["id"] == self.subscriptionId:
-                return True
-        return False
-
-
-    def get_accounts(self):
-        return self.run_command("azure account list --json")
-
-
-    def list(self):
-        print self.run_command("azure vm list --json")
-
-
-a = AzureVM(subscriptionId)
+a = vm.AzureVM(subscription_id)
+a.create_vm(deployment_name, resource_group_name, resource_group_location, template_file_path, parameters_file_path)
 a.list()
 
-#azure account set $subscriptionId
-#
-#
-#if [ -z "$resourceGroupLocation" ] ; 
-#then
-#	echo "Using existing resource group..."
-#else 
-#	echo "Creating a new resource group..." 
-#	azure group create --name $resourceGroupName --location $resourceGroupLocation
-#fi
-#
-#
-#echo "Starting deployment..."
-#azure group deployment create  --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters-file $parametersFilePath
+#a.create_vm(name="lalaal1", resource_group="lalala1_group", template_file="lalala", parameters_file="lalala")
