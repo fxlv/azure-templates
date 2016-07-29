@@ -3,7 +3,7 @@ import os
 import sys
 from subprocess import Popen, PIPE
 import json
-import vm
+from azurepy import vm
 
 
 if os.path.exists("account.py"):
