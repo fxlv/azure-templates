@@ -6,8 +6,10 @@ import json
 import vm
 
 
+if os.path.exists("account.py"):
+    import account
+    subscription_id = account.subscription_id
 
-subscription_id="lalala-lalala-lalala"
 vm_name="cloudhawkbuild"
 resource_group_location="northeurope"
 
