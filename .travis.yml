@@ -5,9 +5,10 @@ os:
 
 before_script:
   - echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe" | sudo tee /etc/apt/sources.list
-  - echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe" | sudo tee /etc/apt/sources.list
   - sudo apt-get update
-  - sudo apt-get install shellcheck flake8 pep8
+  - sudo apt-get install shellcheck
+  - sudo pip install flake8
+  - sudo pip install pep8
   - npm install -g jsonlint
 
 script:
