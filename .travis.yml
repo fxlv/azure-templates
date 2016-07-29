@@ -5,13 +5,14 @@ os:
 
 before_script:
   - echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe" | sudo tee /etc/apt/sources.list
+  - echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe" | sudo tee /etc/apt/sources.list
   - sudo apt-get update
-  - sudo apt-get install shellcheck pyflakes pep8
+  - sudo apt-get install shellcheck flake8 pep8
   - npm install -g jsonlint
 
 script:
  - jsonlint cloudbuilder/parameters.json
  - jsonlint cloudbuilder/template.json
  - shellcheck -e SC2034,SC2139 cloudbuilder/*.sh
- - pyflakes */deploy.py
+ - flake8 */deploy.py
  - pep8 */deploy.py
