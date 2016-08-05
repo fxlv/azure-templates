@@ -10,7 +10,7 @@
             "defaultValue": "cloudhawk",
             "type": "String"
         },
-        "networkInterfaces_cloudhawk356_name": {
+        "networkInterfaces_cloudhawk_name": {
             "defaultValue": "cloudhawk356",
             "type": "String"
         },
@@ -26,12 +26,12 @@
             "defaultValue": "cloudhawk",
             "type": "String"
         },
-        "storageAccounts_cloudhawk1055_name": {
-            "defaultValue": "cloudhawk1056",
+        "storageAccounts_cloudhawk1": {
+            "defaultValue": "cloudhawk1",
             "type": "String"
         },
-        "storageAccounts_cloudhawk3423_name": {
-            "defaultValue": "cloudhawk3423",
+        "storageAccounts_cloudhawk2": {
+            "defaultValue": "cloudhawk2",
             "type": "String"
         }
     },
@@ -58,7 +58,7 @@
                         "name": "[parameters('virtualMachines_cloudhawk_name')]",
                         "createOption": "FromImage",
                         "vhd": {
-                            "uri": "[concat('https', '://', parameters('storageAccounts_cloudhawk3423_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_cloudhawk_name'),'2016616194037.vhd'))]"
+                            "uri": "[concat('https', '://', parameters('storageAccounts_cloudhawk2'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_cloudhawk_name'),'2016616194037.vhd'))]"
                         },
                         "caching": "ReadWrite"
                     },
@@ -76,20 +76,20 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cloudhawk356_name'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cloudhawk_name'))]"
                         }
                     ]
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cloudhawk3423_name'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cloudhawk356_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cloudhawk2'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_cloudhawk_name'))]"
             ]
         },
         {
             "comments": "Generalized from resource: '.",
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_cloudhawk356_name')]",
+            "name": "[parameters('networkInterfaces_cloudhawk_name')]",
             "apiVersion": "2016-03-30",
             "location": "northeurope",
             "properties": {
@@ -190,7 +190,7 @@
                 "tier": "Standard"
             },
             "kind": "Storage",
-            "name": "[parameters('storageAccounts_cloudhawk1055_name')]",
+            "name": "[parameters('storageAccounts_cloudhawk1')]",
             "apiVersion": "2016-01-01",
             "location": "northeurope",
             "tags": {},
@@ -205,7 +205,7 @@
                 "tier": "Premium"
             },
             "kind": "Storage",
-            "name": "[parameters('storageAccounts_cloudhawk3423_name')]",
+            "name": "[parameters('storageAccounts_cloudhawk2')]",
             "apiVersion": "2016-01-01",
             "location": "northeurope",
             "tags": {},

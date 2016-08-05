@@ -8,7 +8,7 @@
         "virtualMachines_cloudhawk_name": {
             "value": "cloudhawk"
         },
-        "networkInterfaces_cloudhawk356_name": {
+        "networkInterfaces_cloudhawk_name": {
             "value": "cloudhawk"
         },
         "networkSecurityGroups_cloudhawk_name": {
@@ -16,11 +16,11 @@
         },
 
 
-        "storageAccounts_cloudhawk1055_name": {
-            "value": "storageaccountname1"
+        "storageAccounts_cloudhawk1": {
+            "value": "storageaccountname01"
         },
-        "storageAccounts_cloudhawk3423_name": {
-            "value": "storageaccountname2"
+        "storageAccounts_cloudhawk2": {
+            "value": "storageaccountname02"
         }
 
     }
