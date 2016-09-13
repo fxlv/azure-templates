@@ -1,15 +1,13 @@
 #!/usr/bin/env python
-import ipdb
-import os
-from azurepy import vm
+from azurepy import vm, account
+import sys
 
-if os.path.exists("account.py"):
-    import account
-    subscription_id = account.subscription_id
+a = vm.AzureVM(account.get_subscription_id())
+if not a.set_vm("winstar"):
+    print "This VM is not available"
+    print "You'll have to re-deploy"
+    sys.exit(1)
 
-vm_name = "winstar"
-a = vm.AzureVM(subscription_id)
-a.set_vm("winstar")
 if a.is_running():
     print "VM is running"
     print "IP: {}".format(a.get_ip())

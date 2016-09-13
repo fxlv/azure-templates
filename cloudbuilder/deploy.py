@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 import os
-from azurepy import vm
+from azurepy import vm, account
 
-if os.path.exists("account.py"):
-    import account
-    subscription_id = account.subscription_id
+subscription_id = account.get_subscription_id()
 
 vm_name = "cloudhawkbuild"
 resource_group_location = "northeurope"
